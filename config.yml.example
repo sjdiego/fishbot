@@ -1,0 +1,13 @@
+hostname: irc.network.tld
+port: 6667
+
+nickname: nickname
+ident: fish
+realname: "Teh f1shb0t <ᵒ)))))>"
+
+automodes: +IR
+allow_invites: false
+
+channels:
+  - general
+  - test
