@@ -136,20 +136,17 @@ func autoModes() {
 }
 
 func joinChannels() {
-	if len(config.Channels) == 0 {
+	if len(config.DefaultChannel) == 0 {
 		return
 	}
 
-	for _, channel := range config.Channels {
-		join(channel)
-		time.Sleep(1 * time.Second)
-	}
+	join(config.DefaultChannel)
 }
 
 func replyInvite(channel string, nick string) {
 	log.Printf("%s invited me to %s", nick, channel)
 
-	if config.AllowInvites == true {
+	if config.AllowInvites {
 		join(strings.TrimPrefix(channel, "#"))
 		time.Sleep(3 * time.Second)
 		send(fmt.Sprintf("PRIVMSG %s :\x01ACTION m00s contentedly at %s\x01", channel, nick))

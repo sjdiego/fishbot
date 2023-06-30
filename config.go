@@ -1,33 +1,39 @@
 package main
 
 import (
-	"io/ioutil"
 	"log"
+	"strings"
 
-	"gopkg.in/yaml.v2"
+	"github.com/spf13/viper"
 )
 
 type Config struct {
-	Hostname     string   `yaml:"hostname,omitempty"`
-	Port         int      `yaml:"port,omitempty"`
-	Nickname     string   `yaml:"nickname,omitempty"`
-	Ident        string   `yaml:"ident,omitempty"`
-	Realname     string   `yaml:"realname,omitempty"`
-	Automodes    string   `yaml:"automodes,omitempty"`
-	Channels     []string `yaml:"channels,omitempty"`
-	AllowInvites bool     `yaml:"allow_invites,omitempty"`
+	Hostname       string `mapstructure:"HOSTNAME"`
+	Port           int    `mapstructure:"PORT"`
+	Nickname       string `mapstructure:"NICKNAME"`
+	Ident          string `mapstructure:"IDENT"`
+	Realname       string `mapstructure:"REALNAME"`
+	Automodes      string `mapstructure:"AUTOMODES"`
+	DefaultChannel string `mapstructure:"DEFAULT_CHANNEL"`
+	AllowInvites   bool   `mapstructure:"ALLOW_INVITES"`
 }
 
 var config Config
 
 func parseConfig() {
-	configFile, err := ioutil.ReadFile("config.yml")
+	viper.AddConfigPath(".")
+	viper.SetConfigName("config")
+	viper.SetConfigType("yaml")
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+	viper.AutomaticEnv()
+
+	err := viper.ReadInConfig()
 
 	if err != nil {
 		panic(err)
 	}
 
-	err = yaml.Unmarshal(configFile, &config)
+	err = viper.Unmarshal(&config)
 
 	if err != nil {
 		panic(err)
