@@ -8,8 +8,8 @@ import (
 )
 
 type Config struct {
-	Hostname       string `mapstructure:"HOSTNAME"`
-	Port           int    `mapstructure:"PORT"`
+	Hostname       string `mapstructure:"IRC_HOST"`
+	Port           int    `mapstructure:"IRC_PORT"`
 	Nickname       string `mapstructure:"NICKNAME"`
 	Ident          string `mapstructure:"IDENT"`
 	Realname       string `mapstructure:"REALNAME"`

@@ -1,5 +1,5 @@
-hostname: irc.network.tld
-port: 6667
+irc_host: irc.network.tld
+irc_port: 6667
 
 nickname: nickname
 ident: fish
