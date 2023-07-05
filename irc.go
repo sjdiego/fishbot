@@ -57,11 +57,6 @@ func join(channel string) {
 	send(fmt.Sprintf("JOIN #%s", channel))
 }
 
-func part(channel string) {
-	log.Printf("Leaving channel #%s ...", channel)
-	send(fmt.Sprintf("PART #%s :Fiuuuuuuuuuuuuuuu", channel))
-}
-
 func getRaw(message string) int {
 	// :stirling.chathispano.com 433 * :El nick n está en uso.
 	if !strings.HasPrefix(message, ":") {

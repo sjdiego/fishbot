@@ -6,11 +6,11 @@ services:
       dockerfile: Dockerfile
       context: .
     environment:
-      - "IRC_HOST=${IRC_HOST}"
-      - "IRC_PORT=${IRC_PORT}"
-      - "NICKNAME=${NICKNAME}"
-      - "IDENT=${IDENT}"
-      - "REALNAME=${REALNAME}"
-      - "AUTOMODES=${AUTOMODES}"
-      - "DEFAULT_CHANNEL=${DEFAULT_CHANNEL}"
-      - "ALLOW_INVITES=${ALLOW_INVITES}"
+      - IRC_HOST=${IRC_HOST}
+      - IRC_PORT=${IRC_PORT}
+      - NICKNAME=${NICKNAME}
+      - IDENT=${IDENT}
+      - REALNAME=${REALNAME}
+      - AUTOMODES=${AUTOMODES}
+      - DEFAULT_CHANNEL=${DEFAULT_CHANNEL}
+      - ALLOW_INVITES=${ALLOW_INVITES}

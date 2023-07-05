@@ -9,6 +9,9 @@ A clone look-a-like from the original bot of Quakenet, but made in Go.
 3. Compile and run using `go build .` and `./fishbot`
    - Or run it directly with `go run .`
 
+If you are using Docker to deploy the bot you can use environment variables to
+override config.yml parameters.
+
 ### 🎣 How to invite bot to my channel
 
 You have to set the config parameter `allow_invites` to `true`. Then everybody
