@@ -125,7 +125,7 @@ func setNick(nick string) {
 }
 
 func autoModes() {
-	nickName := strings.Split(config.Nickname, ":")
+	nickName := strings.Split(config.Nickname, "!")
 	log.Printf("Settings %s user modes to %s", nickName[0], config.Automodes)
 	send(fmt.Sprintf("MODE %s %s", nickName[0], config.Automodes))
 }
