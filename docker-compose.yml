@@ -1,10 +1,10 @@
-version: "3.2"
-
 services:
+
   fishbot:
     build:
       dockerfile: Dockerfile
       context: .
+    restart: unless-stopped
     environment:
       - IRC_HOST=${IRC_HOST}
       - IRC_PORT=${IRC_PORT}
@@ -14,3 +14,5 @@ services:
       - AUTOMODES=${AUTOMODES}
       - DEFAULT_CHANNEL=${DEFAULT_CHANNEL}
       - ALLOW_INVITES=${ALLOW_INVITES}
+    labels:
+      - traefik.enable=false
